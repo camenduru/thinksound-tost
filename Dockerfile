@@ -35,6 +35,6 @@ RUN pip install torch torchvision torchaudio --extra-index-url https://download.
     aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/ThinkSound/resolve/main/vae.ckpt -d /content/ThinkSound/ckpts -o vae.ckpt && \
     aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/ThinkSound/resolve/main/synchformer_state_dict.pth -d /content/ThinkSound/ckpts -o synchformer_state_dict.pth
 
-COPY ./worker_runpod.py /content/ComfyUI/worker_runpod.py
+COPY ./worker_runpod.py /content/ThinkSound/worker_runpod.py
 WORKDIR /content/ThinkSound
 CMD python worker_runpod.py
