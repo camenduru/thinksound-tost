@@ -30,7 +30,7 @@ RUN pip install torch torchvision torchaudio --extra-index-url https://download.
     pip install lightning transformers==4.53.2 moviepy==1.0.3 k-diffusion open-clip-torch omegaconf blobfile tiktoken sentencepiece descript-audio-codec vector-quantize-pytorch && \
     pip install git+https://github.com/patrick-kidger/torchcubicspline && \
     pip install git+https://github.com/junjun3518/alias-free-torch && \
-    git clone --depth 1 --branch dev https://github.com/camenduru/ThinkSound-hf /content/ThinkSound && \
+    GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 --branch dev https://github.com/camenduru/ThinkSound-hf /content/ThinkSound && \
     aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/ThinkSound/resolve/main/thinksound_light.ckpt -d /content/ThinkSound/ckpts -o thinksound_light.ckpt && \
     aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/ThinkSound/resolve/main/vae.ckpt -d /content/ThinkSound/ckpts -o vae.ckpt && \
     aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/ThinkSound/resolve/main/synchformer_state_dict.pth -d /content/ThinkSound/ckpts -o synchformer_state_dict.pth
