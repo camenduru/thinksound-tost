@@ -1,5 +1,5 @@
 {
-	"input_video": "",
-	"output_path": "",
+	"input_video": "https://files.catbox.moe/9qp9bj.mp4",
+	"output_path": "thinksound.mp4",
 	"seed": 0
 }
