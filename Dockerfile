@@ -30,10 +30,24 @@ RUN pip install torch torchvision torchaudio --extra-index-url https://download.
     pip install lightning transformers==4.53.2 moviepy==1.0.3 k-diffusion open-clip-torch omegaconf blobfile tiktoken sentencepiece descript-audio-codec vector-quantize-pytorch runpod && \
     pip install git+https://github.com/patrick-kidger/torchcubicspline && \
     pip install git+https://github.com/junjun3518/alias-free-torch && \
-    GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 --branch dev https://github.com/camenduru/ThinkSound-hf /content/ThinkSound && \
+    GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 --branch docker https://github.com/camenduru/ThinkSound-hf /content/ThinkSound && \
     aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/ThinkSound/resolve/main/thinksound_light.ckpt -d /content/ThinkSound/ckpts -o thinksound_light.ckpt && \
     aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/ThinkSound/resolve/main/vae.ckpt -d /content/ThinkSound/ckpts -o vae.ckpt && \
-    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/ThinkSound/resolve/main/synchformer_state_dict.pth -d /content/ThinkSound/ckpts -o synchformer_state_dict.pth
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/ThinkSound/resolve/main/synchformer_state_dict.pth -d /content/ThinkSound/ckpts -o synchformer_state_dict.pth && \
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/facebook/metaclip-h14-fullcc2.5b/raw/main/special_tokens_map.json -d /content/ThinkSound/ckpts/metaclip-h14-fullcc2.5b -o special_tokens_map.json && \
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/facebook/metaclip-h14-fullcc2.5b/raw/main/added_tokens.json -d /content/ThinkSound/ckpts/metaclip-h14-fullcc2.5b -o added_tokens.json && \
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/facebook/metaclip-h14-fullcc2.5b/raw/main/merges.txt -d /content/ThinkSound/ckpts/metaclip-h14-fullcc2.5b -o merges.txt && \
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/facebook/metaclip-h14-fullcc2.5b/raw/main/vocab.json -d /content/ThinkSound/ckpts/metaclip-h14-fullcc2.5b -o vocab.json && \
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/facebook/metaclip-h14-fullcc2.5b/raw/main/tokenizer_config.json -d /content/ThinkSound/ckpts/metaclip-h14-fullcc2.5b -o tokenizer_config.json && \
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/facebook/metaclip-h14-fullcc2.5b/raw/main/preprocessor_config.json -d /content/ThinkSound/ckpts/metaclip-h14-fullcc2.5b -o preprocessor_config.json && \
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/facebook/metaclip-h14-fullcc2.5b/resolve/main/model.safetensors -d /content/ThinkSound/ckpts/metaclip-h14-fullcc2.5b -o model.safetensors && \
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/facebook/metaclip-h14-fullcc2.5b/raw/main/config.json -d /content/ThinkSound/ckpts/metaclip-h14-fullcc2.5b -o config.json && \
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/google/t5-v1_1-xl/raw/main/config.json -d /content/ThinkSound/ckpts/t5-v1_1-xl -o config.json && \
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/google/t5-v1_1-xl/raw/main/generation_config.json -d /content/ThinkSound/ckpts/t5-v1_1-xl -o generation_config.json && \
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/google/t5-v1_1-xl/raw/main/special_tokens_map.json -d /content/ThinkSound/ckpts/t5-v1_1-xl -o special_tokens_map.json && \
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/google/t5-v1_1-xl/resolve/main/spiece.model -d /content/ThinkSound/ckpts/t5-v1_1-xl -o spiece.model && \
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/google/t5-v1_1-xl/raw/main/tokenizer_config.json -d /content/ThinkSound/ckpts/t5-v1_1-xl -o tokenizer_config.json && \
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/google/t5-v1_1-xl/resolve/main/pytorch_model.bin -d /content/ThinkSound/ckpts/t5-v1_1-xl -o pytorch_model.bin
 
 COPY ./worker_runpod.py /content/ThinkSound/worker_runpod.py
 WORKDIR /content/ThinkSound
