@@ -27,7 +27,7 @@ USER camenduru
 RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu128 && \
     pip install xformers --extra-index-url https://download.pytorch.org/whl/cu128 && \
     pip install https://github.com/camenduru/wheels/releases/download/3090/flash_attn-2.8.1-cp310-cp310-linux_x86_64.whl && \
-    pip install lightning transformers==4.53.2 moviepy==1.0.3 k-diffusion open-clip-torch omegaconf blobfile tiktoken sentencepiece descript-audio-codec vector-quantize-pytorch runpod && \
+    pip install lightning transformers==4.53.2 moviepy==1.0.3 k-diffusion open-clip-torch omegaconf blobfile tiktoken sentencepiece descript-audio-codec vector-quantize-pytorch protobuf==5.29.5 runpod && \
     pip install git+https://github.com/patrick-kidger/torchcubicspline && \
     pip install git+https://github.com/junjun3518/alias-free-torch && \
     GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 --branch docker https://github.com/camenduru/ThinkSound-hf /content/ThinkSound && \
