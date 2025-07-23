@@ -28,7 +28,7 @@ RUN pip install torch torchvision torchaudio --extra-index-url https://download.
     pip install xformers --extra-index-url https://download.pytorch.org/whl/cu128 && \
     pip install https://github.com/camenduru/wheels/releases/download/3090/flash_attn-2.8.1-cp310-cp310-linux_x86_64.whl && \
     pip install lightning==2.5.2 transformers==4.53.2 moviepy==1.0.3 k-diffusion==0.1.1.post1 open-clip-torch==2.32.0 omegaconf==2.3.0 blobfile==3.0.0 tiktoken==0.9.0 sentencepiece==0.2.0 vector-quantize-pytorch==1.22.18 protobuf==5.29.5 runpod==1.7.13 && \
-    pip install argbind==0.3.9 soundfile==0.13.1 pyloudnorm==0.1.1 importlib_resources==6.5.2 julius==0.2.7 ffmpy==0.6.0 ipython==8.37.0 matplotlib==3.10.3 librosa==0.11.0 pystoi==0.4.1 orch-stoi==0.2.3 flatten-dict==0.4.2 markdown2==2.5.3 randomname==0.2.1 tensorboard==2.20.0 && \
+    pip install argbind==0.3.9 soundfile==0.13.1 pyloudnorm==0.1.1 importlib_resources==6.5.2 julius==0.2.7 ffmpy==0.6.0 ipython==8.37.0 matplotlib==3.10.3 librosa==0.11.0 pystoi==0.4.1 torch-stoi==0.2.3 flatten-dict==0.4.2 markdown2==2.5.3 randomname==0.2.1 tensorboard==2.20.0 && \
     pip install descript-audio-codec==1.0.0 --no-deps && \
     pip install descript-audiotools==0.7.2 --no-deps && \
     pip install git+https://github.com/patrick-kidger/torchcubicspline && \
